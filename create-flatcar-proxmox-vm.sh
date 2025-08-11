@@ -1,4 +1,5 @@
 #!/bin/bash
+# Inspiration: https://www.flatcar.org/docs/latest/installing/community-platforms/proxmoxve/
 
 IGNITION_CONFIG=$(cat <<EOF
 {
@@ -28,13 +29,15 @@ EOF
 if [[ -n "$1" ]]; then
 	VM_ID=$1
 else
+	# Will ask for the VM ID, and will wait up to 10s before moving on.
 	read -t 10 -p "Enter the VM number you wanna use for this new instance: " VM_ID
 fi
 
 if [[ -n "$2" ]]; then
 	STORAGE_ID=$2
 else
-	read -t 10 -p "Enter the storage ID you wanna use for this new instance: " STORAGE_ID
+	# Will ask for the Storage Name, and will wait up to 10s before moving on.
+	read -t 10 -p "Enter the Storage Name you wanna use for this new instance: " STORAGE_ID
 fi
 
 if [[ -n "$VM_ID" && -n "$STORAGE_ID" ]]; then
