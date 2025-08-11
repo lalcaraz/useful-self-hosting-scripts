@@ -32,11 +32,11 @@ if [[ -n "$VM_ID" && -n "$STORAGE_ID" ]]; then
         rm flatcar_production_proxmoxve_image.img
 else
 	echo ""
-        if [[ -z "$VM_ID" ]]; then
-                echo "Error: VM ID is required as the first argument or via prompt."
-        fi
-        if [[ -z "$STORAGE_ID" ]]; then
-                echo "Error: Storage ID is required as the second argument or via prompt."
-        fi
-        exit 1
+	if [[ -z "$VM_ID" ]]; then
+			echo "Error: VM ID is required as the first argument or via prompt."
+	fi
+	if [[ -z "$STORAGE_ID" ]]; then
+			echo "Error: Storage ID is required as the second argument or via prompt."
+	fi
+	exit 1
 fi
